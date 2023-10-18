@@ -2,14 +2,21 @@ import { Link, Router } from "react-router-dom"
 import './CardMovie.css'
 export const CardMovie = ({ movie }) => {
     return (
+        <>
+            <Link to={`movie/${movie.id}`}>
+                <div className='card'>
 
-        <Link className='main__card' to={`movie/${movie.id}`}>
-            <li  >
-                <h5 >{movie.title}</h5>
-                <img className='card__poster' src={movie.poster} alt={movie.title} />
-            </li>
+                    <b>
 
-        </Link>
+                        <img className='card__poster' src={movie.poster} alt={movie.title} />
+                    </b>
+                    <div className="content">
+                        <p className="title">{movie.title}</p>
+                    </div>
+                </div>
+            </Link>
+        </>
+
 
 
     )

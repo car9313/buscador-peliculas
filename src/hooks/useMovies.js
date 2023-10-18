@@ -9,12 +9,14 @@ export function useMovies({ search, sort }) {
 
   const getMovies = useCallback(async ({ search }) => {
     try {
+      console.log('Hola Mundo')
       if (previewSearch.current === search) return
       setLoading(true)
       setError(null)
       previewSearch.current = search
       const newMovies = await searchMovies({ search })
       setMovies(newMovies)
+      console.log(error)
     } catch (e) {
       setError(e.message)
     } finally {
@@ -23,8 +25,8 @@ export function useMovies({ search, sort }) {
   }, [])
 
   const sortedMovies = useMemo(() => {
-    return sort ?
-      [...movies].sort((a, b) => a.title.localeCompare(b.title))
+    return sort
+      ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
       : movies
   }, [sort, movies])
   return { movies: sortedMovies, getMovies, loading, errorFetch: error }

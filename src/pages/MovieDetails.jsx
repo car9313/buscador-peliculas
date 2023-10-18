@@ -9,12 +9,11 @@ const useGetMovie = (id) => {
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     setIsLoading(true)
-    ;(async () => {
-      const newMovie = await getMovie({ id })
-      console.log(isLoading)
-      setIsLoading(false)
-      setMovie(newMovie)
-    })()
+      ; (async () => {
+        const newMovie = await getMovie({ id })
+        setIsLoading(false)
+        setMovie(newMovie)
+      })()
   }, [id])
 
   return { movie, isLoading }
@@ -29,7 +28,11 @@ const MovieDetails = () => {
     <>
       {movie && (
         <div className="details">
-          <img className="card__poster" src={movie.Poster} alt={movie.title} />
+          <div className='card'>
+            <b>
+              <img className=" card__poster " src={movie.Poster} alt={movie.title} />
+            </b>
+          </div>
           <div className="details__text">
             <p>Títulosdgdsgd: {movie.Title}</p>
             <p>Año: {movie.Year}</p>

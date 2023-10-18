@@ -1,14 +1,17 @@
 .details {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
     width: 100%;
-    height: 100%;
     flex-wrap: wrap;
     padding: 5px;
 }
 
 .details__text {
     padding: 5px 25px;
+}
+
+.details__poster {
+    width: 50%;
 }
